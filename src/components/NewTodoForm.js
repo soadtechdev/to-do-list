@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
+import "./NewTodoForm.css";
 
 export default class NewTodoForm extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ export default class NewTodoForm extends Component {
   onSubmitForm(e) {
     e.preventDefault();
 
-    this.props.createTodo({ ...this.state, id: uuidv4(), completed:false });
+    this.props.createTodo({ ...this.state, id: uuidv4(), completed: false });
     //reiniciamos el state
     this.setState({ task: "" });
   }
@@ -27,7 +28,7 @@ export default class NewTodoForm extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmitForm}>
-        <label htmlFor="task">New task</label>
+        <label htmlFor="task">Nueva Tarea</label>
         <input
           type="text"
           placeholder="new task"
@@ -36,7 +37,7 @@ export default class NewTodoForm extends Component {
           value={this.state.task}
           onChange={this.onTask}
         />
-        <button>Add Todo</button>
+        <button className="btn-add">Agregar</button>
       </form>
     );
   }
