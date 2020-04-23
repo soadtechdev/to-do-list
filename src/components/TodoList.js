@@ -13,7 +13,17 @@ export default class TodoList extends Component {
     this.update = this.update.bind(this);
     this.toggleCompleteTask = this.toggleCompleteTask.bind(this);
   }
-
+  componentDidMount() {
+    const taskLS = localStorage.getItem("task");
+    if (taskLS) {
+      this.setState({
+        todos: JSON.parse(taskLS),
+      });
+    }
+  }
+  componentDidUpdate() {
+    localStorage.setItem("task", JSON.stringify(this.state.todos));
+  }
   create(newTodo) {
     this.setState({
       todos: [...this.state.todos, newTodo],
@@ -24,6 +34,7 @@ export default class TodoList extends Component {
       todos: this.state.todos.filter((t) => t.id !== id),
     });
   }
+
   update(id, updateTask) {
     const updateTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
@@ -33,6 +44,7 @@ export default class TodoList extends Component {
     });
     this.setState({ todos: updateTodos });
   }
+
   toggleCompleteTask(id) {
     const updateTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
@@ -42,6 +54,7 @@ export default class TodoList extends Component {
     });
     this.setState({ todos: updateTodos });
   }
+
   render() {
     const todos = this.state.todos.map((todo) => (
       <Todo
@@ -57,7 +70,7 @@ export default class TodoList extends Component {
     return (
       <div className="TodoList">
         <h1>
-          React Todo List <span>Un simple Todo list</span>
+          React Todo List <span>By: Fernando Ropero</span>
         </h1>
         <NewTodoForm createTodo={this.create} />
         <ul>{todos}</ul>

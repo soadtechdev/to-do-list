@@ -21,6 +21,7 @@ export default class NewTodoForm extends Component {
     e.preventDefault();
 
     this.props.createTodo({ ...this.state, id: uuidv4(), completed: false });
+
     //reiniciamos el state
     this.setState({ task: "" });
   }
