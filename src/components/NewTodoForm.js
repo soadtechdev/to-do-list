@@ -19,7 +19,7 @@ export default class NewTodoForm extends Component {
   onSubmitForm(e) {
     e.preventDefault();
 
-    this.props.createTodo({ ...this.state, id: uuidv4() });
+    this.props.createTodo({ ...this.state, id: uuidv4(), completed:false });
     //reiniciamos el state
     this.setState({ task: "" });
   }
