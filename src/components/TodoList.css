@@ -1,13 +1,17 @@
 .TodoList {
   margin: 4rem auto;
   padding: 2rem 3rem 3rem;
-  max-width: 500px;
   background-color: #00bcd4;
+  max-width: 500px;
   color: #fff;
   box-shadow: 28px -28px 0px 0px rgba(100, 100, 100, 0.1);
 }
+@media (max-width: 680px) {
+  .TodoList {
+    width: 60%;
+  }
+}
 .TodoList ul {
-  margin-top: 2.6rem;
   list-style: none;
 }
 
@@ -23,4 +27,9 @@
   margin-bottom: 0.7rem;
   margin-left: 3px;
   margin-top: 0.2rem;
+}
+
+.TodoList span {
+  margin-top: 30px;
+  display: block;
 }

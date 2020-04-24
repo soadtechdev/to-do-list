@@ -7,24 +7,24 @@ export default class NewTodoForm extends Component {
     super(props);
 
     this.state = { task: "" };
-    this.onTask = this.onTask.bind(this);
-    this.onSubmitForm = this.onSubmitForm.bind(this);
+    // this.onTask = this.onTask.bind(this);
+    // this.onSubmitForm = this.onSubmitForm.bind(this);
   }
 
-  onTask(e) {
+  onTask = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
-  }
+  };
 
-  onSubmitForm(e) {
+  onSubmitForm = (e) => {
     e.preventDefault();
 
     this.props.createTodo({ ...this.state, id: uuidv4(), completed: false });
 
     //reiniciamos el state
     this.setState({ task: "" });
-  }
+  };
 
   render() {
     return (

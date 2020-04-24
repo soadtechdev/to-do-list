@@ -21,6 +21,13 @@ form button {
   border-radius: 5px;
   color: #fff;
 }
+@media (max-width: 680px) {
+  form button {
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+  }
+}
 form button:hover {
   cursor: pointer;
 }

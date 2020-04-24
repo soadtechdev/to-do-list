@@ -8,33 +8,33 @@ export default class Todo extends Component {
       isEditing: false,
       task: this.props.task,
     };
-    this.onDeleteTask = this.onDeleteTask.bind(this);
-    this.toggleForm = this.toggleForm.bind(this);
-    this.onChangeTask = this.onChangeTask.bind(this);
-    this.onUpdateTask = this.onUpdateTask.bind(this);
-    this.onToggle = this.onToggle.bind(this);
+    // this.onDeleteTask = this.onDeleteTask.bind(this);
+    // this.toggleForm = this.toggleForm.bind(this);
+    // this.onChangeTask = this.onChangeTask.bind(this);
+    // this.onUpdateTask = this.onUpdateTask.bind(this);
+    // this.onToggle = this.onToggle.bind(this);
   }
 
-  onDeleteTask() {
+  onDeleteTask = () => {
     this.props.removeTodo(this.props.id);
-  }
-  toggleForm() {
+  };
+  toggleForm = () => {
     this.setState({ isEditing: !this.state.isEditing });
-  }
-  onChangeTask(e) {
+  };
+  onChangeTask = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
-  }
-  onUpdateTask(e) {
+  };
+  onUpdateTask = (e) => {
     e.preventDefault();
     //mandando id y tarea a actualizar
     this.props.updateTodo(this.props.id, this.state.task);
     this.setState({ isEditing: false });
-  }
-  onToggle(e) {
+  };
+  onToggle = (e) => {
     this.props.toggleTodo(this.props.id);
-  }
+  };
   render() {
     let result;
     if (this.state.isEditing) {

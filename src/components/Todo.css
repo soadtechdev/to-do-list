@@ -6,13 +6,29 @@
   align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
 }
+@media (max-width: 680px) {
+  .Todo1 {
+    display: block !important;
+    position: relative;
+    right: 21px;
+  }
+}
 .Todo1 {
   display: flex;
   margin: 0 -3rem 4px;
   padding: 1.1rem 3rem;
+  height: 13px;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.5s ease;
+}
+.Todo1:hover {
+  height: 40px;
+  transition: all 0.2s ease;
+}
+.Todo1 li {
+  width: fit-content;
 }
 .Todo1:hover button {
   display: flex;
@@ -44,8 +60,13 @@
 .botones {
   display: flex;
 }
+@media (max-width: 680px) {
+  .botones {
+    margin-top: 10px;
+  }
+}
 .botones span {
-  margin-top: 3px;
+  margin-top: 3px !important;
 }
 .botones button {
   padding: 1px 10px;
